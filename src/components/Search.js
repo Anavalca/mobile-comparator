@@ -1,11 +1,17 @@
-const Search = () => {
+
+
+const Search = (props) => {
+  const { onSearchText } = props
 
   return (
     <div>
-      <label for="site-search">Buscador</label>
-      <input type="search" id="site-search" name="q" />
-
-      <button>Search</button>
+      <label></label>
+      <input
+        type="text"
+        placeholder="Escribe un modelo"
+        value={props.value}
+        onChange={(e) => onSearchText(e.currentTarget.value)}
+      />
     </div>
   )
 }
