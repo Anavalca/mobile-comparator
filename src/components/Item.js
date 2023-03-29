@@ -5,9 +5,9 @@ const Item = (props) => {
   return (
     <>
       <img alt="" src={img} className='h-48'/>
-      <h3 className="">{model}</h3>
+      <h3 className="pt-3">{model}</h3>
       <p>{brand}</p>
-      <p>{price}</p>
+      <p className="font-bold">{price}</p>
     </>
   )
 }

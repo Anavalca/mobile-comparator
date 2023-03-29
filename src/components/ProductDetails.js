@@ -1,23 +1,30 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import productDetailsData from '../services/productDetailsData';
+import Description from "./Description";
+import Actions from "./Actions";
 
-const ProductDetails = (props) => {
-  const [item, setItem] = useState([])
-
-  const parameterId = useParams()
-  const productId = parameterId.id
+const ProductDetails = () => {
+  const [item, setItem] = useState()
+  const productId = useParams()
 
   useEffect(() => {
-    productDetailsData(productId)
-    .then(data => setItem(data))
-  }, [productId])
+    productDetailsData(productId.id)
+      .then(data => setItem(data))
+  }, [productId.id])
 
   return (
-    <>
-      <img alt="" src={item.imgUrl} className='h-48'/>
-      <h3 className="">{item.model}</h3>
-    </>
+    <section className='bg-whiteSmoke p-5 flex justify-center gap-8'>
+      {item && (
+        <>
+          <img alt="" src={item.imgUrl} className='h-80' />
+          <div>
+            <Description product={item} />
+            <Actions id={item.id} options={item.options} />
+          </div>
+        </>
+      )}
+    </section>
   )
 }
 
