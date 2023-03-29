@@ -1,7 +1,7 @@
 import '../stylesheets/App.css';
 import Header from './Header';
 import ProductList from './ProductList';
-import ProductDetail from './ProductDetail';
+import ProductDetails from './ProductDetails';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
       <Header/>
       <Routes>
         <Route path="/" element={<ProductList/>} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </div>
   );
