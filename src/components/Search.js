@@ -1,7 +1,5 @@
-
-
 const Search = (props) => {
-  const { onSearchText } = props
+  const { searchText, onSearchText } = props
 
   return (
     <div>
@@ -9,7 +7,7 @@ const Search = (props) => {
       <input
         type="text"
         placeholder="Escribe un modelo"
-        value={props.value}
+        value={searchText}
         onChange={(e) => onSearchText(e.currentTarget.value)}
       />
     </div>

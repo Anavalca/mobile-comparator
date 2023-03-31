@@ -1,5 +1,6 @@
 const Description = ({ product }) => {
-  const { model, brand, price, cpu, ram, networkTechnology, displayResolution, battery, primaryCamera, secondaryCmera, dimentions, weight } = product
+  const { model, brand, price, cpu, ram, networkTechnology, displayResolution, battery, primaryCamera, 
+    secondaryCmera, dimentions, weight } = product
 
   return (
     <div className="flex flex-col ">

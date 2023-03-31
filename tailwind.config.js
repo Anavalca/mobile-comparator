@@ -8,6 +8,7 @@ module.exports = {
       "white": "#ffffff",
       "whiteSmoke": "#f5f5f5",
       'red': "#ff5b5b",
+      'black':"#302f2f",
     },
     extend: {
       fontFamily: {

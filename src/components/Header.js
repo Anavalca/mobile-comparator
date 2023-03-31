@@ -7,7 +7,6 @@ const Header = () => {
       <a href='/'>
         <img alt="" src={logo} className="w-12"/>
       </a>
-      Header
     </header>
   )
 }

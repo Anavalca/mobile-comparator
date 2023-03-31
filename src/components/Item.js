@@ -1,5 +1,4 @@
 const Item = (props) => {
-
   const { model, img, brand, price } = props;
 
   return (

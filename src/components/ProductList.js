@@ -15,7 +15,7 @@ const ProductList = () => {
 
   return (
     <section className='bg-whiteSmoke p-5 flex flex-col items-center'>
-      <Search onSearchText={setSearchText} />
+      <Search searchText={searchText} onSearchText={setSearchText} />
       <ul className='w-fit grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-items-center xl:px-20'>
         {items
           .filter(item => item.model.toLowerCase().includes(searchText.toLowerCase()) ||
