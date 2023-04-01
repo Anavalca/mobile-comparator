@@ -1,14 +1,14 @@
 const Item = (props) => {
-  const { model, img, brand, price } = props;
+  const { model, img, brand, price } = props
 
   return (
     <>
       <img alt="" src={img} className='h-48'/>
-      <h3 className="pt-3">{model}</h3>
-      <p>{brand}</p>
-      <p className="font-bold">{price}</p>
+      <p className="text-sm pt-2">{brand}</p>
+      <h2 className="text-lg">{model}</h2>
+      <p className="text-3xl font-normal text-green">{price}<small>€</small></p>
     </>
   )
 }
 
-export default Item;
+export default Item

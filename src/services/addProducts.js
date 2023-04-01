@@ -1,5 +1,5 @@
 const addProducts = async (productData) => {
-  const url = "/api/cart";
+  const url = "/api/cart"
 
   const response = await fetch(url, {
     method: 'POST',
@@ -13,5 +13,5 @@ const addProducts = async (productData) => {
   return data
 }
 
-export default addProducts;
+export default addProducts
 

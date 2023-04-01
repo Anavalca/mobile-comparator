@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState } from "react"
 import addProducts from '../services/addProducts'
-import { useShoppingContext } from './ShoppingContext';
+import { useShoppingContext } from './ShoppingContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
 const Actions = ({ id, options }) => {
-  const { colors, storages } = options;
+  const { colors, storages } = options
 
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedStorage, setSelectedStorage] = useState(storages[0])
@@ -17,19 +19,19 @@ const Actions = ({ id, options }) => {
   }
 
   const sendShoppingCart = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const cart = await addProducts(productData)
     setShoppingCart(cart.count)
   }
 
   return (
-    <form onSubmit={sendShoppingCart} className="flex flex-col gap-4">
-      <div>
+    <form onSubmit={sendShoppingCart} className="flex flex-col gap-3">
+      <div className="pt-3">
         <p>Color:</p>
         {colors.map(color =>
           <button type="button" key={color.name}
             className={`p-2 mr-2 rounded border-2
-            ${color.name === selectedColor.name ? "bg-black text-white" : "bg-white text-black"}`}
+            ${color.name === selectedColor.name ? "bg-green text-white font-medium" : "bg-white text-black"}`}
             onClick={() => setSelectedColor(color)}
           >
             {color.name}
@@ -41,17 +43,19 @@ const Actions = ({ id, options }) => {
         {storages.map(storage =>
           <button type="button" key={storage.name}
             className={`p-2 mr-2 rounded border-2
-            ${storage.name === selectedStorage.name ? "bg-black text-white" : "bg-white text-black"}`}
+            ${storage.name === selectedStorage.name ? "bg-green text-white font-medium" : "bg-white text-black"}`}
             onClick={() => setSelectedStorage(storage)}
           >
             {storage.name}
           </button>
         )}
       </div>
-      <button className="bg-whiteSmoke rounded-full p-4" type="submit"
-      >Enviar al carrito</button>
+      <button className="bg-black text-white md:w-9/12 rounded-full p-4 mt-3 hover:bg-green" type="submit">
+        <FontAwesomeIcon icon={faCartPlus} className='fa-lg px-2' />
+        Añadir al carrito
+      </button>
     </form>
   )
 }
 
-export default Actions;
+export default Actions

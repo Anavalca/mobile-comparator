@@ -1,26 +1,25 @@
-import logo from '../images/logo_mobile.png'
-import { useShoppingContext } from './ShoppingContext';
+import logo from '../images/movilfy-logo.png'
+import { useShoppingContext } from './ShoppingContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
-
   const { shoppingCart, product } = useShoppingContext()
 
   return (
     <header className=' bg-whiteSmoke flex flex-col'>
-      <div className='w-full bg-white flex justify-between p-4'>
+      <div className='w-full bg-green flex justify-between items-center p-3'>
         <a href='/'>
-          <img alt="" src={logo} className="w-12" />
+          <img alt="" src={logo} className="h-14 md:h-26" />
         </a>
         <span className='flex align-center'>
-          <img alt="" src={logo} className="w-12" />
+        <FontAwesomeIcon icon={faShoppingCart} className='fa-2xl px-2 text-white' />
           {shoppingCart > 0 && (
-            shoppingCart
+            <span className="rounded-full w-7 h-7 bg-black text-white text-sm font-medium -translate-x-4 -translate-y-3 flex justify-center items-center">{shoppingCart}</span>
           )}
         </span>
       </div>
-      <nav className='pt-4 pl-4 bg-whiteSmoke'>
+      <nav className='pt-4 pl-5 bg-whiteSmoke'>
         <a href='/'>Listado móviles y tablets</a>
         {product && (
           <>
@@ -33,4 +32,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default Header
