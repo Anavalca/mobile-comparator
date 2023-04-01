@@ -48,7 +48,7 @@ const Actions = ({ id, options }) => {
           </button>
         )}
       </div>
-      <button className="bg-white rounded-full p-4" type="submit"
+      <button className="bg-whiteSmoke rounded-full p-4" type="submit"
       >Enviar al carrito</button>
     </form>
   )

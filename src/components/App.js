@@ -8,8 +8,8 @@ import { ShoppingProvider } from './ShoppingContext';
 const App = () => {
 
   return (
-    <div className="App">
-      <ShoppingProvider cart={0}>
+    <div className="App bg-whiteSmoke">
+      <ShoppingProvider cart={0} productModel={""}>
         <Header />
         <Routes>
           <Route path="/" element={<ProductList />} />
