@@ -9,8 +9,28 @@ const ProductList = () => {
   const [items, setItems] = useState([])
   const [searchText, setSearchText] = useState("");
 
+
   useEffect(() => {
-    productListData().then(data => setItems(data))
+    const time = new Date().getTime();
+    const expireTime = time + (60 * 60000);
+
+    const storageData = JSON.parse(localStorage.getItem("sesionData"));
+    console.log(storageData)
+    if (storageData && (storageData.expiredTime > time)) {
+      setItems(storageData.productList)
+    } else {
+      productListData().then(data => {
+        setItems(data)
+        const sesionData = {
+          productList: data,
+          expiredTime: expireTime
+        }
+        if (items.length > 0) {
+          localStorage.setItem("sesionData", JSON.stringify(sesionData));
+        }
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
