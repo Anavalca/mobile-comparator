@@ -3,16 +3,19 @@ import Header from './Header';
 import ProductList from './ProductList';
 import ProductDetails from './ProductDetails';
 import { Route, Routes } from 'react-router-dom';
+import { ShoppingProvider } from './ShoppingContext';
 
 const App = () => {
 
   return (
     <div className="App">
-      <Header/>
-      <Routes>
-        <Route path="/" element={<ProductList/>} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-      </Routes>
+      <ShoppingProvider cart={0}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ProductList />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Routes>
+      </ShoppingProvider>
     </div>
   );
 }

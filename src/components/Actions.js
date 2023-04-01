@@ -1,24 +1,25 @@
 import { useState } from "react";
 import addProducts from '../services/addProducts'
+import { useShoppingContext } from './ShoppingContext';
 
 const Actions = ({ id, options }) => {
   const { colors, storages } = options;
 
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedStorage, setSelectedStorage] = useState(storages[0])
-  const [shoppingCartCount, setShoppingCartCount] = useState()
 
-  console.log(shoppingCartCount)
+  const { setShoppingCart } = useShoppingContext()
 
   const productData = {
     "id": id,
-    "colorCode": selectedColor.code, 
+    "colorCode": selectedColor.code,
     "storageCode": selectedStorage.code
   }
 
   const sendShoppingCart = async (e) => {
     e.preventDefault();
-    setShoppingCartCount(await addProducts(productData))
+    const cart = await addProducts(productData)
+    setShoppingCart(cart.count)
   }
 
   return (
