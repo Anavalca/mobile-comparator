@@ -2,7 +2,7 @@
 
 Ecommerce de smartphones y tablet realizado como prueba técnica para acceder a un puesto de Frontend Developer.
 
-
+![mockup-desktop](https://user-images.githubusercontent.com/60483557/229353870-b2462fdb-897c-4a3b-9ef8-c67de40d7226.png)
 
 ## Instalación 🔧
 
@@ -37,6 +37,7 @@ $ npm start
     
 7.  **Diseño responsive** adaptable a cualquier dispositivo.
 
+![image](https://user-images.githubusercontent.com/60483557/229353887-077668a1-6f37-4c1a-aefd-12616d0dab0f.png)
 
 ## Tecnologías utilizadas ⚙️
 - React
