@@ -27,7 +27,6 @@ const ProductList = () => {
         localStorage.setItem("productsList", JSON.stringify(sessionData))
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
