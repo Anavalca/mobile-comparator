@@ -1,5 +1,5 @@
 const addProducts = async (productData) => {
-  const url = "/api/cart"
+  const url = "https://itx-frontend-test.onrender.com/api/cart"
 
   const response = await fetch(url, {
     method: 'POST',
