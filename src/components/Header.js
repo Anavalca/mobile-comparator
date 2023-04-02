@@ -22,7 +22,7 @@ return (
   <header className='bg-whiteSmoke flex flex-col'>
     <div className='w-full bg-green flex justify-between items-center p-3 px-8 3xl:px-[15%]'>
       <a href='/'>
-        <img alt="" src={logo} className="h-14 md:h-26" />
+        <img alt="Logo Movilfy" src={logo} className="h-14 md:h-26" />
       </a>
       <span className='flex align-center'>
         <FontAwesomeIcon icon={faShoppingCart} className='fa-2xl px-2 text-white' />

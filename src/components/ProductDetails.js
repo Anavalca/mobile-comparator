@@ -48,7 +48,7 @@ const ProductDetails = () => {
     <section className='bg-white h-auto m-4 flex flex-col items-center'>
       {item && (
         <div className=" w-full p-4 rounded-lg flex flex-col items-center md:flex-row md:justify-center gap-8 ">
-          <img alt="" src={item.imgUrl} className='h-80' />
+          <img alt={`imagen ${item.model}`} src={item.imgUrl} className='h-80' />
           <div>
             <Description product={item} />
             <Actions id={item.id} options={item.options} />
