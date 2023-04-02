@@ -19,8 +19,8 @@ const Header = () => {
 }, [setShoppingCart])
 
 return (
-  <header className=' bg-whiteSmoke flex flex-col'>
-    <div className='w-full bg-green flex justify-between items-center p-3'>
+  <header className='bg-whiteSmoke flex flex-col'>
+    <div className='w-full bg-green flex justify-between items-center p-3 px-8 3xl:px-[15%]'>
       <a href='/'>
         <img alt="" src={logo} className="h-14 md:h-26" />
       </a>
@@ -31,7 +31,7 @@ return (
         )}
       </span>
     </div>
-    <nav className='pt-4 pl-4 bg-whiteSmoke'>
+    <nav className='pt-4 bg-whiteSmoke pl-10 3xl:px-[15%]'>
       <a href='/'>Listado móviles y tablets</a>
       {product && (
         <>

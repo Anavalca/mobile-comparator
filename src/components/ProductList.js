@@ -31,9 +31,9 @@ const ProductList = () => {
   }, [])
 
   return (
-    <section className='bg-whiteSmoke p-4 flex flex-col items-center'>
+    <section className='bg-whiteSmoke pt-4 3xl:px-[15%] flex flex-col items-center'>
       <Search searchText={searchText} onSearchText={setSearchText} />
-      <ul className='w-fit mt-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-items-center xl:px-20'>
+      <ul className='w-fit mt-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 3xl:grid-cols-5 justify-items-center'>
         {items
           .filter(item => item.model.toLowerCase().includes(searchText.toLowerCase()) ||
             item.brand.toLowerCase().includes(searchText.toLowerCase()))
