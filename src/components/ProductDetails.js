@@ -14,8 +14,28 @@ const ProductDetails = () => {
   const product = useParams()
 
   useEffect(() => {
-    productDetailsData(product.id)
-      .then(data => setItem(data))
+    const time = new Date().getTime()
+    const expireTime = time + (60 * 60000)
+
+    const productData = JSON.parse(localStorage.getItem(product.id))
+
+    if (productData) {
+      if (productData.expiredTime > time) {
+        setItem(productData.product)
+      }
+    } else {
+      productDetailsData(product.id)
+        .then(data => {
+          setItem(data)
+          const productData = {
+            product: data,
+            id: data.id,
+            expiredTime: expireTime
+          }
+          localStorage.setItem(product.id, JSON.stringify(productData))
+        })
+    }
+
   }, [product.id])
 
   useEffect(() => {
@@ -25,9 +45,9 @@ const ProductDetails = () => {
   }, [item, setProduct])
 
   return (
-    <section className='bg-white h-auto m-5 flex flex-col items-center'>
+    <section className='bg-white h-auto m-4 flex flex-col items-center'>
       {item && (
-        <div className=" w-full p-8 rounded-lg flex flex-col items-center md:flex-row md:justify-center gap-8 ">
+        <div className=" w-full p-4 rounded-lg flex flex-col items-center md:flex-row md:justify-center gap-8 ">
           <img alt="" src={item.imgUrl} className='h-80' />
           <div>
             <Description product={item} />

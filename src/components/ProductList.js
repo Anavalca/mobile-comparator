@@ -12,7 +12,7 @@ const ProductList = () => {
     const time = new Date().getTime()
     const expireTime = time + (60 * 60000)
 
-    const storageData = JSON.parse(localStorage.getItem("sessionData"))
+    const storageData = JSON.parse(localStorage.getItem("productsList"))
 
     if (storageData && (storageData.expiredTime > time)) {
       setItems(storageData.productList)
@@ -23,18 +23,17 @@ const ProductList = () => {
           productList: data,
           expiredTime: expireTime
         }
-        if (items.length > 0) {
-          localStorage.setItem("sessionData", JSON.stringify(sessionData))
-        }
+
+        localStorage.setItem("productsList", JSON.stringify(sessionData))
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
-    <section className='bg-whiteSmoke p-5 flex flex-col items-center'>
+    <section className='bg-whiteSmoke p-4 flex flex-col items-center'>
       <Search searchText={searchText} onSearchText={setSearchText} />
-      <ul className='w-fit mt-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-items-center xl:px-20'>
+      <ul className='w-fit mt-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-items-center xl:px-20'>
         {items
           .filter(item => item.model.toLowerCase().includes(searchText.toLowerCase()) ||
             item.brand.toLowerCase().includes(searchText.toLowerCase()))

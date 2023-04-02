@@ -22,6 +22,13 @@ const Actions = ({ id, options }) => {
     e.preventDefault()
     const cart = await addProducts(productData)
     setShoppingCart(cart.count)
+    const time = new Date().getTime()
+    const expireTime = time + (60 * 60000)
+    const shoppingCartStorage = {
+      cartNumber: cart.count,
+      expiredTime: expireTime
+    }
+    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCartStorage))
   }
 
   return (
